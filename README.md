@@ -1,4 +1,4 @@
-# webpack4-template
+﻿# webpack4-template
 
 > webpack4多页应用模板开发框架
 
@@ -15,7 +15,7 @@ npm install
 #本地开发
 npm run dev
 
-#生产环境
+#编译打包
 npm run build
 
 #自动部署（一键build+压缩+上传至服务器，使用时先配置autoDeploy.js中的config对象）
