@@ -108,28 +108,28 @@ const devWebpackConfig = merge(baseWebpackConfig, {
   },
   devServer: config.dev.devServer
 });
-module.exports = devWebpackConfig;
+// module.exports = devWebpackConfig;
 
-// module.exports = new Promise((resolve, reject) => {
-//   portfinder.basePort = port;
-//   portfinder.getPort((err, cport) => {
-//     if (err) reject(err);
-//     else {
-//       devWebpackConfig.devServer.port = cport;
-//
-//       let messages;
-//       let host = devWebpackConfig.devServer.host;
-//       if (host === "0.0.0.0") {
-//         messages = [`Your application is running here: http://${getIPAddress()}:${cport} or http://localhost:${cport}`]
-//       } else {
-//         messages = [`Your application is running here: http://${host}:${cport}`]
-//       }
-//       devWebpackConfig.plugins.push(new FriendlyErrorsPlugin({
-//         compilationSuccessInfo: {
-//           messages,
-//         }
-//       }));
-//       resolve(devWebpackConfig);
-//     }
-//   })
-// });
+module.exports = new Promise((resolve, reject) => {
+  portfinder.basePort = port;
+  portfinder.getPort((err, cport) => {
+    if (err) reject(err);
+    else {
+      devWebpackConfig.devServer.port = cport;
+
+      let messages;
+      let host = devWebpackConfig.devServer.host;
+      if (host === "0.0.0.0") {
+        messages = [`Your application is running here: http://${getIPAddress()}:${cport} or http://localhost:${cport}`]
+      } else {
+        messages = [`Your application is running here: http://${host}:${cport}`]
+      }
+      devWebpackConfig.plugins.push(new FriendlyErrorsPlugin({
+        compilationSuccessInfo: {
+          messages,
+        }
+      }));
+      resolve(devWebpackConfig);
+    }
+  })
+});

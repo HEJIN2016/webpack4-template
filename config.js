@@ -38,7 +38,7 @@ module.exports = {
           // require('postcss-preset-env')(),
           // require('cssnano')(),
           require('autoprefixer')(),
-          require('postcss-px2vw')(postcssPx2vw)
+          // require('postcss-px2vw')(postcssPx2vw)
         ]
       },
     }
