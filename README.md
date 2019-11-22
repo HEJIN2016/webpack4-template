@@ -41,6 +41,6 @@ http://localhost:3200
 ├── .browserslistrc                      postcss可支持的浏览器配置
 ├── config.js                            webpack配置文件
 ├── README.md                           README
-├── webpack.config.js                   build时的webpack配置
-├── webpack.dev.config.js               dev时的webpack配置
+├── webpack.base.conf.js                   build时的webpack配置
+├── webpack.dev.conf.js               dev时的webpack配置
 ```
