@@ -29,7 +29,7 @@ http://localhost:3200
 ├── dist                               打包后的文件
 ├── src                                存放源码
 │   ├── assets                         资源目录 assets 用于组织未编译的静态资源如 LESS、SASS 或 JavaScript
-│   ├── pages                          多页面html目录，每个html可有对应的同前缀名js
+│   ├── pages                          多页面html目录，每个html会自动引入对应的同目录他那个前缀名js
 │   ├── style                          存放样式文件
 │   ├── main.js                      公共js文件，每个页面都会调用此js    
 │   ├── js                           存放js文件    
