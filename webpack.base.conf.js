@@ -38,22 +38,6 @@ let entry = {
 
 let htmlPlugins = [
   new webpack.ProvidePlugin(config.providePlugin),
-
-  // new CleanWebpackPlugin(),
-  // new MiniCssExtractPlugin({
-  //   filename: ('css/[name].[hash].css'),
-  //   chunkFilename: '[id].[hash].css',
-  //   // ignoreOrder: false, // Enable to remove warnings about conflicting order
-  //   // allChunks: true,
-  // }),
-  // // copy custom static assets
-  // new copyWebpackPlugin([
-  //   {
-  //     from: path.resolve(__dirname, 'static'),
-  //     to: config.build.assetsSubDirectory,
-  //     ignore: ['.*']
-  //   }
-  // ])
 ];
 
 jsFiles.forEach((item, index)=>{
@@ -93,33 +77,9 @@ htmlFiles.forEach((item, index)=>{
     }
   }))
 });
-// htmlPlugins.push(
-//   new UglifyJsPlugin({
-//     uglifyOptions: {
-//       warnings: false,
-//       compress: {
-//         // drop_console: true // 删除console语句
-//       },
-//       output: {
-//         // comments: false,
-//         beautify: false
-//       }
-//     },
-//     sourceMap: config.build.jsSourceMap,
-//     parallel: true
-//   })
-// );
 
 module.exports = {
   entry,
-  // mode: 'production',
-  // output: {
-  //   path: path.resolve(__dirname, 'dist'),
-  //   filename: ('js/[name].[chunkhash].js'),
-  //   chunkFilename: ('js/[id].[chunkhash].js'),
-  //   publicPath: config.build.assetsPublicPath
-  // },
-  // devtool: "#source-map",
   resolve: {
     extensions: ['.js'],
     alias: {
@@ -128,41 +88,6 @@ module.exports = {
   },
   module: {
     rules: config.commonRules
-    // rules: [
-    //   {
-    //     test: /\.js$/,
-    //     loader: 'babel-loader',
-    //     include: [resolve('src')]
-    //     // include: [resolve('src'), resolve('node_modules/webpack-dev-server/client')]
-    //   },
-    //   {
-    //     test: /\.less$/,
-    //     use: [MiniCssExtractPlugin.loader,{
-    //       loader: 'css-loader',
-    //       options: {
-    //         sourceMap: config.build.cssSourceMap
-    //       }
-    //     },config.build.postCssLoader, {
-    //       loader: 'less-loader',
-    //       options: {
-    //         sourceMap: config.build.cssSourceMap,
-    //         plugins: [ new LessFunc() ]     // 实例化
-    //       }
-    //     }]
-    //   },
-    //   {
-    //     test: /\.css$/,
-    //     use: [{
-    //         loader: MiniCssExtractPlugin.loader
-    //       },"style-loader",{
-    //         loader: 'css-loader',
-    //         options: {
-    //           sourceMap: config.build.cssSourceMap
-    //         }
-    //       }, config.build.postCssLoader
-    //     ]
-    //   }
-    // ].concat(config.commonRules)
   },
   plugins: htmlPlugins
 };
