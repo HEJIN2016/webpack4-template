@@ -36,6 +36,7 @@ function resolve (dir) {
 const devWebpackConfig = merge(baseWebpackConfig, {
   mode: 'development',
   plugins: [
+    new webpack.HotModuleReplacementPlugin(), // 热模块更新
     new MiniCssExtractPlugin({
       filename: ('css/[name].[hash].css'),
       chunkFilename: '[id].[hash].css',
