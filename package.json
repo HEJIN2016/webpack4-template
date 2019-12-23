@@ -6,7 +6,8 @@
   "scripts": {
     "build": "webpack --config webpack.prod.conf.js",
     "dev": "webpack-dev-server --config webpack.dev.conf.js",
-    "start": "npm run dev"
+    "start": "npm run dev",
+    "upload": "node autoDeploy.js"
   },
   "author": "jin",
   "license": "ISC",
