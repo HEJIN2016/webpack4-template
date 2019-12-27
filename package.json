@@ -10,7 +10,7 @@
     "upload": "node autoDeploy.js"
   },
   "author": "jin",
-  "license": "ISC",
+  "license": "MIT",
   "dependencies": {
     "webpack": "^4.41.2",
     "webpack-dev-server": "^3.9.0"
@@ -21,6 +21,7 @@
     "@babel/plugin-transform-runtime": "^7.6.2",
     "@babel/preset-env": "^7.7.1",
     "@babel/preset-stage-2": "^7.0.0",
+    "@babel/runtime": "^7.7.7",
     "autoprefixer": "^9.7.1",
     "axios": "^0.19.0",
     "babel": "^6.23.0",
