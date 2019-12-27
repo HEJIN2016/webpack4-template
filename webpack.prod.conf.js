@@ -22,7 +22,7 @@ module.exports = merge(baseWebpackConfig, {
     chunkFilename: ('js/[id].[chunkhash].js'),
     publicPath: config.build.assetsPublicPath
   },
-  devtool: "#source-map",
+  devtool: config.build.jsSourceMap?"#source-map":false,
   plugins: [
     new CleanWebpackPlugin(),
 
