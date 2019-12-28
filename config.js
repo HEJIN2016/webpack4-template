@@ -10,6 +10,22 @@ module.exports = {
     axios: "axios",
     // echarts: "echarts"
   },
+  polyfill: true,
+  postCssLoader: {
+    loader: 'postcss-loader',
+    options: {
+      ident: 'postcss',
+      sourceMap: true,
+      plugins: (loader) => [
+        require('postcss-import')({}),
+        require('postcss-url')({}),
+        // require('postcss-preset-env')(),
+        // require('cssnano')(),
+        require('autoprefixer')(),
+        // require('postcss-px2vw')(postcssPx2vw)
+      ]
+    },
+  },
   dev: {
     assetsSubDirectory: 'static',
     assetsPublicPath: '/',
@@ -26,45 +42,13 @@ module.exports = {
       // quiet: true, // 关闭webpack输出日志
       proxy: {} // 反向代理table
       // publicPath: config.dev.assetsPublicPath
-    },
-    postCssLoader: {
-      loader: 'postcss-loader',
-      options: {
-        ident: 'postcss',
-        sourceMap: true,
-        plugins: (loader) => [
-          require('postcss-import')({}),
-          require('postcss-url')({}),
-          // require('postcss-preset-env')(),
-          // require('cssnano')(),
-          require('autoprefixer')(),
-          // require('postcss-px2vw')(postcssPx2vw)
-        ]
-      },
     }
   },
   build: {
     assetsPublicPath: '/',
     assetsSubDirectory: 'static',
-    polyfill: true,
     jsSourceMap,
-    cssSourceMap,
-
-    postCssLoader: {
-      loader: 'postcss-loader',
-      options: {
-        sourceMap: cssSourceMap,
-        ident: 'postcss',
-        plugins: (loader) => [
-          require('postcss-import')({}),
-          require('postcss-url')({}),
-          // require('postcss-preset-env')(),
-          require('cssnano')(),
-          require('autoprefixer')(),
-          require('postcss-px2vw')()
-        ]
-      },
-    }
+    cssSourceMap
   },
 
   commonRules: [

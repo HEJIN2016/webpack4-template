@@ -32,9 +32,15 @@ let jsFiles = glob.sync("src/pages/**/*.js") || [];
 
 // polyfill和common.js对应的entry
 let entry = {
-  polyfill: ['babel-polyfill'],
   common: path.join(__dirname, 'src', 'main.js')
 };
+
+if (config.polyfill) {
+  entry = {
+    polyfill: ['babel-polyfill'],
+    common: path.join(__dirname, 'src', 'main.js')
+  };
+}
 
 let htmlPlugins = [
   new webpack.ProvidePlugin(config.providePlugin),
@@ -47,14 +53,14 @@ jsFiles.forEach((item, index)=>{
 htmlFiles.forEach((item, index)=>{
   let chunks = [];
   if (entry[getHtmlChunk(item)]) {
-    if (config.build.polyfill) {
+    if (config.polyfill) {
       chunks = ["polyfill", "common", getHtmlChunk(item)];
     } else {
       chunks = ["common", getHtmlChunk(item)];
     }
 
   } else {
-    if (config.build.polyfill) {
+    if (config.polyfill) {
       chunks = ["polyfill", "common"];
     } else {
       chunks = ["common"];

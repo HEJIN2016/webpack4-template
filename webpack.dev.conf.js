@@ -85,7 +85,7 @@ const devWebpackConfig = merge(baseWebpackConfig, {
           options: {
             sourceMap: true
           }
-        },config.dev.postCssLoader, {
+        },config.postCssLoader, {
           loader: 'less-loader',
           options: {
             sourceMap: true,
@@ -102,7 +102,7 @@ const devWebpackConfig = merge(baseWebpackConfig, {
           options: {
             sourceMap: true
           }
-        }, config.dev.postCssLoader
+        }, config.postCssLoader
         ]
       }
     ]

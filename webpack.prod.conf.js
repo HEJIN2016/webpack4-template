@@ -70,7 +70,7 @@ module.exports = merge(baseWebpackConfig, {
           options: {
             sourceMap: config.build.cssSourceMap
           }
-        },config.build.postCssLoader, {
+        },config.postCssLoader, {
           loader: 'less-loader',
           options: {
             sourceMap: config.build.cssSourceMap,
@@ -87,7 +87,7 @@ module.exports = merge(baseWebpackConfig, {
           options: {
             sourceMap: config.build.cssSourceMap
           }
-        }, config.build.postCssLoader
+        }, config.postCssLoader
         ]
       }
     ]
