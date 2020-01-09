@@ -18,8 +18,8 @@ function getHtmlChunk(globSrc) {
   return globSrc.match(/src\/pages\/(.+)/)[1].slice(0, -5).replace('/', '_');
 }
 
-// 根据js文件名生成chunk名
-function getJsChunk (globSrc) {
+// 根据js文件名生成Entry名
+function getJsEntry (globSrc) {
   return globSrc.match(/src\/pages\/(.+)/)[1].slice(0, -3).replace('/', '_');
 }
 
@@ -36,10 +36,7 @@ let entry = {
 };
 
 if (config.polyfill) {
-  entry = {
-    polyfill: ['babel-polyfill'],
-    common: path.join(__dirname, 'src', 'main.js')
-  };
+  entry.polyfill = ['babel-polyfill'];
 }
 
 let htmlPlugins = [
@@ -47,7 +44,7 @@ let htmlPlugins = [
 ];
 
 jsFiles.forEach((item, index)=>{
-  entry[getJsChunk(item)] = path.resolve(__dirname, item);
+  entry[getJsEntry(item)] = path.resolve(__dirname, item);
 });
 
 htmlFiles.forEach((item, index)=>{
