@@ -82,7 +82,7 @@ module.exports = merge(baseWebpackConfig, {
         test: /\.css$/,
         use: [{
           loader: MiniCssExtractPlugin.loader
-        },"style-loader",{
+        },{
           loader: 'css-loader',
           options: {
             sourceMap: config.build.cssSourceMap
