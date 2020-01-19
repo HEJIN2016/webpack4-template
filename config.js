@@ -4,13 +4,12 @@ const cssSourceMap = true;
 module.exports = {
   // 自动全局注入的插件，无须import便可直接使用
   providePlugin: {
-    $: "jquery",
-    jquery: "jquery",
-    jQuery: "jquery",
-    axios: "axios",
-    // echarts: "echarts"
+    // $: "jquery",
+    // jquery: "jquery",
+    // jQuery: "jquery",
+    // axios: "axios"
   },
-  polyfill: true,
+  polyfill: true, // 是否注入babel-polyfill
   postCssLoader: {
     loader: 'postcss-loader',
     options: {

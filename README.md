@@ -40,6 +40,7 @@ http://localhost:3200
 ├── node_modules                        Node依赖
 ├── .browserslistrc                      postcss可支持的浏览器配置
 ├── config.js                            webpack配置文件
+├── autoDeploy.js                        前端自动部署脚本
 ├── README.md                           README
 ├── webpack.base.conf.js                   webpack基础配置
 ├── webpack.dev.conf.js               dev时的webpack配置
