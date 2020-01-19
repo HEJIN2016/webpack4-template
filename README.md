@@ -18,6 +18,9 @@ npm run dev
 #生产环境
 npm run build
 
+#自动部署（一键build+压缩+上传至服务器，使用时先配置autoDeploy.js中的config对象）
+npm run upload
+
 #运行地址
 http://localhost:3200
 ```
