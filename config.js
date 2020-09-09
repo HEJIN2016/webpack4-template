@@ -1,5 +1,6 @@
-const jsSourceMap = true;
-const cssSourceMap = true;
+const jsSourceMap = false;
+const cssSourceMap = false;
+const px2rem = require('postcss-plugin-px2rem')
 
 module.exports = {
   // 自动全局注入的插件，无须import便可直接使用
@@ -9,7 +10,7 @@ module.exports = {
     // jQuery: "jquery",
     // axios: "axios"
   },
-  polyfill: true, // 是否注入babel-polyfill
+  polyfill: false, // 是否注入babel-polyfill
   postCssLoader: {
     loader: 'postcss-loader',
     options: {
@@ -21,7 +22,7 @@ module.exports = {
         // require('postcss-preset-env')(),
         // require('cssnano')(),
         require('autoprefixer')(),
-        // require('postcss-px2vw')(postcssPx2vw)
+        px2rem({ remUnit: 750 })
       ]
     },
   },
@@ -44,7 +45,7 @@ module.exports = {
     }
   },
   build: {
-    assetsPublicPath: '/',
+    assetsPublicPath: './',
     assetsSubDirectory: 'static',
     jsSourceMap,
     cssSourceMap
@@ -65,7 +66,7 @@ module.exports = {
       loader: 'url-loader',
       options: {
         limit: 10000,
-        name: 'img/[name].[hash:7].[ext]'
+        name: '[name].[hash:7].[ext]'
       }
     },
     {
@@ -73,7 +74,7 @@ module.exports = {
       loader: 'url-loader',
       options: {
         limit: 10000,
-        name: 'media/[name].[hash:7].[ext]'
+        name: '[name].[hash:7].[ext]'
       }
     },
     {
@@ -81,7 +82,7 @@ module.exports = {
       loader: 'url-loader',
       options: {
         limit: 10000,
-        name: 'fonts/[name].[hash:7].[ext]'
+        name: '[name].[hash:7].[ext]'
       }
     }
   ]

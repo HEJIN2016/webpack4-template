@@ -27,7 +27,7 @@ module.exports = merge(baseWebpackConfig, {
     new CleanWebpackPlugin(),
 
     new MiniCssExtractPlugin({
-      filename: ('css/[name].[hash].css'),
+      filename: ('[name].[hash].css'),
       chunkFilename: '[id].[hash].css',
       // ignoreOrder: false, // Enable to remove warnings about conflicting order
       // allChunks: true,
@@ -65,7 +65,13 @@ module.exports = merge(baseWebpackConfig, {
       },
       {
         test: /\.less$/,
-        use: [MiniCssExtractPlugin.loader,{
+        use: [{
+          loader: MiniCssExtractPlugin.loader,
+          options: {
+            assetsPublicPath: config.build.assetsPublicPath,
+            publicPath: config.build.assetsPublicPath
+          }
+        },{
           loader: 'css-loader',
           options: {
             sourceMap: config.build.cssSourceMap
@@ -81,7 +87,11 @@ module.exports = merge(baseWebpackConfig, {
       {
         test: /\.css$/,
         use: [{
-          loader: MiniCssExtractPlugin.loader
+          loader: MiniCssExtractPlugin.loader,
+          options: {
+            assetsPublicPath: config.build.assetsPublicPath,
+            publicPath: config.build.assetsPublicPath
+          }
         },{
           loader: 'css-loader',
           options: {
